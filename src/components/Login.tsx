@@ -12,10 +12,17 @@ import {
   Icon
 } from '@chakra-ui/core'
 import { Formik, Field } from 'formik'
+import * as Yup from 'yup'
 
 import { Card } from './Card'
 
 const API_ENDPOINT = process.env.API_URL || ''
+
+const LoginSchema = Yup.object().shape({
+  id: Yup.string().required('โปรดกรอกเลขบัตรประจำตัวประชาชนหรือเลขพาสปอร์ต'),
+
+  phone: Yup.string().required('โปรดกรอกเบอร์โทรศัพท์')
+})
 
 export const Login = ({ setData }) => {
   const [fetchError, setFetchError] = useState('')
@@ -26,6 +33,7 @@ export const Login = ({ setData }) => {
       <Box mt={2} fontFamily="heading">
         <Formik
           initialValues={{ id: '', phone: '' }}
+          validationSchema={LoginSchema}
           onSubmit={async (values, actions) => {
             let data: any
 
