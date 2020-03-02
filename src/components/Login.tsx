@@ -9,14 +9,13 @@ import {
   FormErrorMessage,
   InputGroup,
   InputLeftElement,
-  Icon
+  Icon,
+  Text
 } from '@chakra-ui/core'
 import { Formik, Field } from 'formik'
 import * as Yup from 'yup'
 
 import { Card } from './Card'
-
-const API_ENDPOINT = process.env.API_URL || ''
 
 const LoginSchema = Yup.object().shape({
   id: Yup.string().required('โปรดกรอกเลขบัตรประจำตัวประชาชนหรือเลขพาสปอร์ต'),
@@ -39,20 +38,23 @@ export const Login = ({ setData }) => {
 
             actions.setSubmitting(true)
             try {
-              const res = await fetch(`${API_ENDPOINT}`, {
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(values)
-              })
+              const res = await fetch(
+                `http://110.164.131.106:8765/getStudent`,
+                {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(values)
+                }
+              )
 
               data = await res.json()
             } catch (_) {
               setFetchError('An error occured')
             }
 
-            if (data) {
+            if (data.message !== 'invalid') {
               setData(data)
             } else {
               setFetchError(
@@ -98,7 +100,6 @@ export const Login = ({ setData }) => {
                   </FormControl>
                 )}
               </Field>
-              <FormErrorMessage>{fetchError}</FormErrorMessage>
               <Button
                 mt={4}
                 variantColor="teal"
@@ -112,6 +113,9 @@ export const Login = ({ setData }) => {
             </form>
           )}
         </Formik>
+        <Text color="red.500" mt={4}>
+          {fetchError}
+        </Text>
       </Box>
     </Card>
   )
