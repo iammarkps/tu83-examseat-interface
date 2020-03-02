@@ -63,7 +63,7 @@ export const Login = ({ setData }) => {
                 {({ field, form }) => (
                   <FormControl isInvalid={form.errors.id && form.touched.id}>
                     <FormLabel htmlFor="id">
-                      บัตรประจำตัวประชาชน / พาสปอร์ต
+                      เลขบัตรประจำตัวประชาชน / เลขพาสปอร์ต
                     </FormLabel>
                     <InputGroup>
                       <InputLeftElement
