@@ -7,6 +7,7 @@ import { Login } from '../components/Login'
 import { Data } from '../components/Data'
 import { isEmpty } from '../utils/isEmpty'
 import { User } from '../@types/data'
+import { Info } from '../components/Info'
 
 const Background = styled.div`
   height: 100%;
@@ -26,6 +27,7 @@ const Background = styled.div`
 
 export default () => {
   const [data, setData] = useState<User | {}>({})
+  const [readInfo, setRead] = useState(false)
 
   return (
     <React.Fragment>
@@ -63,6 +65,7 @@ export default () => {
         height="100%"
         overflow="auto"
         wrap="wrap"
+        margin="0 auto"
       >
         <Box py={[8, 0]} px={[4, 0]}>
           <Box mx="auto" textAlign="center">
@@ -77,9 +80,11 @@ export default () => {
             </Heading>
           </Box>
           {isEmpty(data) ? (
-            <Login setData={setData} />
-          ) : (
+            <Login setData={setData}></Login>
+          ) : readInfo ? (
             <Data setData={setData} user={data as User} />
+          ) : (
+            <Info setReadInfo={setRead}></Info>
           )}
         </Box>
       </Flex>
