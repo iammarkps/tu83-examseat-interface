@@ -6,6 +6,7 @@ import styled from '@emotion/styled'
 import { Login } from '../components/Login'
 import { Data } from '../components/Data'
 import { isEmpty } from '../utils/isEmpty'
+import { User } from '../@types/data'
 
 const Background = styled.div`
   height: 100%;
@@ -24,7 +25,7 @@ const Background = styled.div`
 `
 
 export default () => {
-  const [data, setData] = useState({})
+  const [data, setData] = useState<User | {}>({})
 
   return (
     <React.Fragment>
@@ -78,7 +79,7 @@ export default () => {
           {isEmpty(data) ? (
             <Login setData={setData} />
           ) : (
-            <Data setData={setData} />
+            <Data setData={setData} user={data} />
           )}
         </Box>
       </Flex>

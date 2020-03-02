@@ -2,8 +2,14 @@ import React from 'react'
 import { Box, Heading, Text, Button } from '@chakra-ui/core'
 
 import { Card } from './Card'
+import { User } from '../@types/data'
 
-export const Data = ({ setData }) => {
+interface IDataProps {
+  setData: React.Dispatch<React.SetStateAction<{} | User>>
+  user: User
+}
+
+export const Data: React.FC<IDataProps> = ({ setData, user }) => {
   return (
     <Card>
       <Heading size="xl">ข้อมูลผู้สมัคร</Heading>
@@ -12,61 +18,61 @@ export const Data = ({ setData }) => {
           <Box as="span" fontWeight="bold">
             เลขประจำตัวสอบ:{' '}
           </Box>
-          12345
+          {user.code}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             ชื่อ:{' '}
           </Box>
-          นายเรียนเด่น
+          {user.firstName}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             นามสกุล:{' '}
           </Box>
-          เล่นดี
+          {user.lastName}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             ประเภท:{' '}
           </Box>
-          โควต้าโอลิมปิกวิชาการ
+          {user.type}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             แผนการเรียน:{' '}
           </Box>
-          วิทย์-คณิต
+          {user.plan}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             อาคาร:{' '}
           </Box>
-          IMPACT FORUM
+          {user.building}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             ห้อง:{' '}
           </Box>
-          Banquet 101
+          {user.room}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             กลุ่ม:{' '}
           </Box>
-          -
+          {user.group}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             ส่วนที่:{' '}
           </Box>
-          1
+          {user.sec}
         </Text>
         <Text>
           <Box as="span" fontWeight="bold">
             แถวที่:{' '}
           </Box>
-          277
+          {user.row}
         </Text>
       </Box>
       <Button
