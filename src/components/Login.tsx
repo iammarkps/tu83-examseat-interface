@@ -52,7 +52,13 @@ export const Login = ({ setData }) => {
               setFetchError('An error occured')
             }
 
-            setData(data)
+            if (data) {
+              setData(data)
+            } else {
+              setFetchError(
+                'เลขบัตรประจำตัวประชาชน/เลขพาสปอร์ต หรือเบอร์โทรศัพท์ ไม่ถูกต้อง'
+              )
+            }
 
             actions.setSubmitting(false)
           }}
