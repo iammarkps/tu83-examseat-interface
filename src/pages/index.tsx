@@ -79,7 +79,7 @@ export default () => {
           {isEmpty(data) ? (
             <Login setData={setData} />
           ) : (
-            <Data setData={setData} user={data} />
+            <Data setData={setData} user={data as User} />
           )}
         </Box>
       </Flex>
