@@ -39,7 +39,7 @@ export const Login = ({ setData }) => {
             actions.setSubmitting(true)
             try {
               const res = await fetch(
-                `http://110.164.131.106:8765/getStudent`,
+                `https://api.examseating.triamudom.ac.th:8765/getStudent`,
                 {
                   method: 'POST',
                   headers: {
