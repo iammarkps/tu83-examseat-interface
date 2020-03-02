@@ -43,15 +43,35 @@ export default () => {
           <picture>
             <source srcSet="/assets/background/bg.webp" type="image/webp" />
             <source
-              srcSet="/assets/background/bg,w_500.jpg 500w,/assets/background/bg,w_1378.jpg 1378w,/assets/background/bg,w_1971.jpg 1971w,/assets/background/bg,w_2453.jpg 2453w,/assets/background/bg,w_2903.jpg 2903w,/assets/background/bg,w_3307.jpg 3307w,/assets/background/bg,w_3675.jpg 3675w,/assets/background/bg,w_4026.jpg 4026w,/assets/background/bg,w_4356.jpg 4356w,/assets/background/bg.jpg 4477w"
+              sizes="(max-width: 4477px) 100vw, 4477px"
+              srcSet="
+/assets/background/bg_pkqwd2_c_scale,w_500.jpg 500w,
+/assets/background/bg_pkqwd2_c_scale,w_1378.jpg 1378w,
+/assets/background/bg_pkqwd2_c_scale,w_1971.jpg 1971w,
+/assets/background/bg_pkqwd2_c_scale,w_2453.jpg 2453w,
+/assets/background/bg_pkqwd2_c_scale,w_2903.jpg 2903w,
+/assets/background/bg_pkqwd2_c_scale,w_3307.jpg 3307w,
+/assets/background/bg_pkqwd2_c_scale,w_3675.jpg 3675w,
+/assets/background/bg_pkqwd2_c_scale,w_4026.jpg 4026w,
+/assets/background/bg_pkqwd2_c_scale,w_4356.jpg 4356w,
+/assets/background/bg_pkqwd2_c_scale,w_4477.jpg 4477w"
               src="/assets/background/bg.jpg"
               type="image/jpeg"
-              sizes="(max-width: 4477px) 100vw, 4477px"
             />
             <img
               loading="eager"
               decoding="async"
-              srcSet="/assets/background/bg,w_500.jpg 500w,/assets/background/bg,w_1378.jpg 1378w,/assets/background/bg,w_1971.jpg 1971w,/assets/background/bg,w_2453.jpg 2453w,/assets/background/bg,w_2903.jpg 2903w,/assets/background/bg,w_3307.jpg 3307w,/assets/background/bg,w_3675.jpg 3675w,/assets/background/bg,w_4026.jpg 4026w,/assets/background/bg,w_4356.jpg 4356w,/assets/background/bg.jpg 4477w"
+              srcSet="
+/assets/background/bg_pkqwd2_c_scale,w_500.jpg 500w,
+/assets/background/bg_pkqwd2_c_scale,w_1378.jpg 1378w,
+/assets/background/bg_pkqwd2_c_scale,w_1971.jpg 1971w,
+/assets/background/bg_pkqwd2_c_scale,w_2453.jpg 2453w,
+/assets/background/bg_pkqwd2_c_scale,w_2903.jpg 2903w,
+/assets/background/bg_pkqwd2_c_scale,w_3307.jpg 3307w,
+/assets/background/bg_pkqwd2_c_scale,w_3675.jpg 3675w,
+/assets/background/bg_pkqwd2_c_scale,w_4026.jpg 4026w,
+/assets/background/bg_pkqwd2_c_scale,w_4356.jpg 4356w,
+/assets/background/bg_pkqwd2_c_scale,w_4477.jpg 4477w"
               src="/assets/background/bg.jpg"
               alt="background"
               sizes="(max-width: 4477px) 100vw, 4477px"
@@ -62,10 +82,10 @@ export default () => {
       <Flex
         align="center"
         justify="center"
-        height="100%"
         overflow="auto"
         wrap="wrap"
         margin="0 auto"
+        minHeight="100%"
       >
         <Box py={[8, 0]} px={[4, 0]}>
           <Box mx="auto" textAlign="center">

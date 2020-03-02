@@ -5,7 +5,7 @@ import { SimpleImg } from 'react-simple-img'
 import { Card } from './Card'
 
 export const Info = ({ setReadInfo }) => (
-  <Card p={[4, 8]} mb={8}>
+  <Card p={[4, 8]} mb={[4, 8]}>
     <Box minWidth="50vw">
       <SimpleImg
         src="/assets/item.jpg"
